@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://popstressaway.vercel.app//sitemap.xml
