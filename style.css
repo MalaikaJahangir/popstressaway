@@ -30,27 +30,35 @@ body {
 .bubble {
     position: absolute;
     width: 50px;
+    /* Bubble size */
     height: 50px;
     border-radius: 50%;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    /* Add a thin border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Subtle, sharp shadow */
-    cursor: pointer;
-    animation: float 10s linear infinite, fade 2s ease-in-out alternate infinite;
+    /* Make the div round */
+    background-color: rgba(135, 206, 250, 0.7);
+    /* Default color */
+    animation: floatUp 3s ease-in-out forwards;
+    /* Bubble floating animation */
 }
 
-@keyframes float {
+@keyframes floatUp {
     0% {
         transform: translateY(100%);
-        /* Start from the bottom of the container */
+        opacity: 1;
     }
 
     100% {
         transform: translateY(-100px);
-        /* Float upwards and disappear above */
+        /* Move the bubbles upwards */
+        opacity: 1;
+        /* Fade out */
     }
 }
+
+.bubble:active {
+    transform: scale(1.2);
+}
+
+
 
 
 @keyframes fade {
