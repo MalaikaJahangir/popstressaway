@@ -1,0 +1,71 @@
+@media (max-width: 600px) {
+    .scaleText span {
+        font-size: 16vw;
+        /* Scale up for very small screens */
+    }
+
+    .scaleText {
+        gap: 8vw;
+        /* Further increase gap */
+    }
+
+    .penguin {
+        display: none;
+    }
+
+    .sun {
+        display: none;
+    }
+
+    .h1-text {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        animation: 3s linear infinite scaleText;
+        margin-left: 10%;
+    }
+
+    .h1-text span {
+        font-size: 24px !important;
+        font-weight: 700;
+    }
+
+    .p-text {
+        font-size: 12px !important;
+    }
+
+    #bubble-container {
+        width: 100%;
+        height: 360px;
+    }
+
+    .scaleText {
+        display: flex;
+        gap: 5px;
+    }
+
+    .scaleText span {
+        font-size: 3rem;
+        color: #ff6f61;
+        display: inline-block;
+        animation: bounce 2s infinite;
+    }
+
+    .scaleText span:nth-child(odd) {
+        animation-delay: 0.2s;
+    }
+
+    .scaleText span:nth-child(even) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+}

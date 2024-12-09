@@ -1,0 +1,367 @@
+:root {
+    --penguin-face: white;
+    --penguin-picorna: orange;
+    --penguin-skin: gray;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Bubble Container */
+#bubble-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border: 2px solid #ccc;
+    background-color: #e6f7ff;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bubble {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    /* Add a thin border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle, sharp shadow */
+    cursor: pointer;
+    animation: float 10s linear infinite, fade 2s ease-in-out alternate infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100%);
+        /* Start from the bottom of the container */
+    }
+
+    100% {
+        transform: translateY(-100px);
+        /* Float upwards and disappear above */
+    }
+}
+
+
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 0.9;
+        /* Increase opacity */
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Penguin */
+
+.sun {
+    position: absolute;
+    top: 1%;
+    left: 3%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    animation: scaleSun 3s infinite alternate, bloomEffect 3s infinite alternate;
+    box-shadow: 0 0 60px 20px rgba(255, 165, 0, 0.6);
+}
+
+
+.penguin {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 45px;
+    /* Above the bubble container */
+    right: 66px;
+    /* Near the right edge */
+    z-index: -1;
+    transform: rotate(-25deg);
+    /* Slight tilt for a dynamic pose */
+    transition: transform 0.3s ease-in-out;
+}
+
+.penguin:hover {
+    transform: rotate(-180deg) scale(1.1);
+    /* Interactive hover effect */
+}
+
+.penguin * {
+    position: absolute;
+}
+
+.penguin:active {
+    transform: scale(1.5);
+    cursor: not-allowed;
+}
+
+.penguin-head {
+    width: 50%;
+    height: 45%;
+    background: linear-gradient(45deg, var(--penguin-skin), rgb(239, 240, 228));
+    border-radius: 70% 70% 65% 65%;
+    top: 10%;
+    left: 25%;
+    z-index: 1;
+}
+
+.face {
+    width: 60%;
+    height: 70%;
+    background-color: var(--penguin-face);
+    border-radius: 70% 70% 60% 60%;
+    top: 15%;
+}
+
+.face.left {
+    left: 5%;
+}
+
+.face.right {
+    right: 5%;
+}
+
+.chin {
+    width: 90%;
+    height: 70%;
+    background-color: var(--penguin-face);
+    top: 25%;
+    left: 5%;
+    border-radius: 70% 70% 100% 100%;
+}
+
+.eye {
+    width: 15%;
+    height: 17%;
+    background-color: black;
+    top: 45%;
+    border-radius: 50%;
+}
+
+.eye.left {
+    left: 25%;
+}
+
+.eye.right {
+    right: 25%;
+}
+
+.eye-lid {
+    width: 150%;
+    height: 100%;
+    background-color: var(--penguin-face);
+    top: 25%;
+    left: -23%;
+    border-radius: 50%;
+}
+
+.blush {
+    width: 15%;
+    height: 10%;
+    background-color: pink;
+    top: 65%;
+    border-radius: 50%;
+}
+
+.blush.left {
+    left: 15%;
+}
+
+.blush.right {
+    right: 15%;
+}
+
+.beak {
+    height: 10%;
+    background-color: var(--penguin-picorna);
+    border-radius: 50%;
+}
+
+.beak.top {
+    width: 20%;
+    top: 60%;
+    left: 40%;
+}
+
+.beak.bottom {
+    width: 16%;
+    top: 65%;
+    left: 42%;
+}
+
+.shirt {
+    font: bold 25px Helvetica, sans-serif;
+    top: 16px;
+    left: 127.5px;
+    z-index: 1;
+    color: #6a6969;
+}
+
+.shirt div {
+    font-weight: initial;
+    top: 22.5px;
+    left: 12px;
+}
+
+.penguin-body {
+    width: 53%;
+    height: 45%;
+    background: linear-gradient(45deg,
+            rgb(134, 133, 133) 0%,
+            rgb(234, 231, 231) 25%,
+            white 67%);
+    border-radius: 80% 80% 100% 100%;
+    top: 40%;
+    left: 23.5%;
+}
+
+.penguin-body::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 45%;
+    background-color: var(--penguin-skin);
+    top: 10%;
+    left: 25%;
+    border-radius: 0% 0% 100% 100%;
+    opacity: 70%;
+}
+
+.arm {
+    width: 30%;
+    height: 60%;
+    background: linear-gradient(90deg,
+            var(--penguin-skin),
+            rgb(209, 210, 199));
+    border-radius: 30% 30% 30% 120%;
+    z-index: -1;
+}
+
+.arm.left {
+    top: 35%;
+    left: 5%;
+    transform-origin: top left;
+    transform: rotate(130deg) scaleX(-1);
+    animation: 3s linear infinite wave;
+}
+
+.arm.right {
+    top: 0%;
+    right: -5%;
+    transform: rotate(-45deg);
+}
+
+@keyframes wave {
+    10% {
+        transform: rotate(110deg) scaleX(-1);
+    }
+
+    20% {
+        transform: rotate(130deg) scaleX(-1);
+    }
+
+    30% {
+        transform: rotate(110deg) scaleX(-1);
+    }
+
+    40% {
+        transform: rotate(130deg) scaleX(-1);
+    }
+}
+
+.foot {
+    width: 15%;
+    height: 30%;
+    background-color: var(--penguin-picorna);
+    top: 85%;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.foot.left {
+    left: 25%;
+    transform: rotate(80deg);
+}
+
+.foot.right {
+    right: 25%;
+    transform: rotate(-80deg);
+}
+
+/* Sun animations */
+@keyframes scaleSun {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1.3);
+    }
+}
+
+@keyframes bloomEffect {
+    0% {
+        box-shadow: 0 0 30px 10px rgba(255, 165, 0, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 60px 20px rgba(255, 140, 0, 0.8);
+    }
+}
+
+.h1-text {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    animation: 3s linear infinite scaleText;
+}
+
+.p-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.scaleText {
+    display: flex;
+    margin-left: 30%;
+    gap: 10px;
+}
+
+.scaleText span {
+    font-size: 3rem;
+    color: #ff6f61;
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+.scaleText span:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.scaleText span:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
