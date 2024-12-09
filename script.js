@@ -31,5 +31,5 @@ function playPopSound() {
     audio.play();
 }
 
-// Generate bubbles every 1 second
-setInterval(createBubble, 1000);
+// Generate bubbles every 300 milliseconds (faster)
+setInterval(createBubble, 400); // Faster bubble creation (adjust to your liking)
